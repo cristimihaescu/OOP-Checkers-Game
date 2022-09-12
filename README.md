@@ -1,1 +1,1 @@
-# polish-draughts-java-MaxOverPowered
+# polish-draughts-Java
