@@ -1,27 +1,26 @@
 package Checkers;
 
 public class Coordinates {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     public Coordinates(int x, int y){
         this.x = x;
         this.y = y;
     }
 
-    public int getX(){
+    public int getX() {
         return x;
     }
 
-    public int getY(){
+    public int getY() {
         return y;
     }
 
     public Coordinates getDifference(Coordinates coordinates){
-        int x = this.x - coordinates.x;
-        int y = this.y - coordinates.y;
-        Coordinates diff =  new Coordinates(x, y);
-        return  diff;
+        int x = coordinates.x - this.x;
+        int y = coordinates.y - this.y;
+        return new Coordinates(x, y);
     }
 
     public boolean isSymmetric(){
@@ -41,9 +40,11 @@ public class Coordinates {
     public Coordinates getNormal(){
         return new Coordinates(x/Math.abs(x), y/Math.abs(y));
     }
+
     public boolean isUp(){
-        return x > 0;
+        return x < 0;
     }
+
     public Coordinates[] getDiagNeighbours(int distance){
         Coordinates[] neighbours = new Coordinates[4];
         neighbours[0] = new Coordinates(x-distance, y-distance);
@@ -56,11 +57,14 @@ public class Coordinates {
 
     public Coordinates[] getInBetweens(Coordinates coordinates){
         int length = getDifference(coordinates).howManyCell();
-        Coordinates direction = getDifference(coordinates).getNormal();
-        Coordinates[] between = new Coordinates[length];
-        for (int i = 1; i < length; i++) {
-            between[i-1] = new Coordinates(x + i*direction.x, y + i*direction.y);
+        if(length != 0) {
+            Coordinates direction = getDifference(coordinates).getNormal();
+            Coordinates[] between = new Coordinates[length];
+            for (int i = 1; i < length; i++) {
+                between[i - 1] = new Coordinates(x + i * direction.x, y + i * direction.y);
+            }
+            return between;
         }
-        return between;
+        return new Coordinates[0];
     }
 }
