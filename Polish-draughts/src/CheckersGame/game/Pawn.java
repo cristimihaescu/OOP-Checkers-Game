@@ -1,23 +1,16 @@
-package Checkers;
+package CheckersGame.game;
 
 
 public class Pawn {
     private Color color;
     private Coordinates position;
     private boolean isCrowned = false;
-    private boolean isSelected = false;
+
 
     public Pawn(int player, int row, int col){
         color = new Color(player);
         position = new Coordinates(row, col);
     }
-
-    public Pawn(int player, int row, int col, boolean isCrowned){
-        color = new Color(player, isCrowned);
-        position = new Coordinates(row, col);
-        this.isCrowned = isCrowned;
-    }
-
 
     public Pawn(Pawn pawn){
         color = pawn.color;
@@ -37,9 +30,6 @@ public class Pawn {
         return position;
     }
 
-    public void setPosition(Coordinates position) {
-        this.position = position;
-    }
 
     public void setPosition(int row, int col){
         this.position = new Coordinates(row, col);

@@ -1,4 +1,4 @@
-package Checkers;
+package CheckersGame.game;
 
 import java.util.InputMismatchException;
 import java.util.Objects;
@@ -27,7 +27,7 @@ public class Game {
             game.playRound(playerNumber);
             round++;
         }
-        game.printGameResult(enemyPlayerNumber,playerNumber);
+        game.printGameResult(enemyPlayerNumber, playerNumber);
 
     }
 
@@ -76,7 +76,7 @@ public class Game {
             input = playerInput.nextLine();
         }
         int[] selectedPawnPosition = convertInputToCoordinate(input);
-        Pawn pawn = board.getFields()[selectedPawnPosition[0]][selectedPawnPosition[1]];
+        Pawn pawn = board.getPawns()[selectedPawnPosition[0]][selectedPawnPosition[1]];
         TryToMakeMove(pawn);
         pawn.unselect();
     }
@@ -93,7 +93,7 @@ public class Game {
         for (int row = 0; row < boardSize; row++) {
             for(int col = 0; col < boardSize; col++){
                 if(board.getColorFromCoordinate(row, col) == enemyPlayer) {
-                    Pawn enemyPawn = board.getFields()[row][col];
+                    Pawn enemyPawn = board.getPawns()[row][col];
                     boolean enemyCanMove = false;
                     if(board.canMove(enemyPawn) || board.canTakeEnemy(enemyPawn)){
                         enemyCanMove = true;
@@ -172,7 +172,7 @@ public class Game {
         if (checkMoveInput(input)) return false;
         int[] Coord = convertInputToCoordinate(input);
         if(checkIfPlayerPawn(player, Coord)){
-            Pawn pawn = board.getFields()[Coord[0]][Coord[1]];
+            Pawn pawn = board.getPawns()[Coord[0]][Coord[1]];
             if(board.canMove(pawn) || board.canTakeEnemy(pawn)){
                 return true;
             }else{

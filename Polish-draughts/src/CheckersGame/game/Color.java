@@ -1,4 +1,4 @@
-package Checkers;
+package CheckersGame.game;
 
 public class Color {
     private final int playerColor;
