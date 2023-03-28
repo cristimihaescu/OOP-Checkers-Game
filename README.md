@@ -24,3 +24,5 @@ Game Rules:
 
 Conclusion:
 The OOP Checkers Java Game is an engaging and interactive way to play the classic board game in a digital format. It provides an opportunity to test your strategic skills and compete against other players.
+![Checkers1](https://user-images.githubusercontent.com/100032003/228144053-a707c1c2-7b94-4c92-b3fd-c654d76a56fc.png)
+![Checkers2](https://user-images.githubusercontent.com/100032003/228144056-a9125692-a486-4a45-b32f-1ef1d0770699.png)
